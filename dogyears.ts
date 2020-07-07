@@ -1,6 +1,5 @@
 
 const calculateDogYears = (originalDogAge: number, weight: number) => {
-    console.log(`age: ${originalDogAge}, weight: ${weight}`);
     
     const focalLength: number = 413.1781;
     const startAge: number = 25.48807;
