@@ -17,13 +17,11 @@ json.reports.forEach(report => {
     if (report.sky_condition) { //  && report.sky_condition.length > 0
         if (Array.isArray(report.sky_condition)) {
             report.sky_condition.forEach(sky => {
-            
                 if ('cloud_base_ft_agl' in sky) {
                     console.log(`sky cover: ${sky.sky_cover} at ${sky.cloud_base_ft_agl} feet.`);
                 } else {
                     console.log(`sky cover: ${sky.sky_cover}`);
-                }
-                
+                }       
             });
         } else {
             if ('cloud_base_ft_agl' in report.sky_condition) {
@@ -32,6 +30,5 @@ json.reports.forEach(report => {
                 console.log(`sky cover: ${report.sky_condition.sky_cover}`);
             }
         }
-        
     }
 });
