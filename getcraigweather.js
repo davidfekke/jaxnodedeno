@@ -1,12 +1,15 @@
+const { args } = Deno;
 
-// URL for weather at craig airport
-const crgwx = 'http://avwx.herokuapp.com/metar/kcrg';
+// URL for weather defaults to craig airport
+const defaultAirport = 'kcrg';
+const airport = (args !== null && args.length === 1) ? args[0] : defaultAirport;  
+const wx_url = `http://avwx.herokuapp.com/metar/${airport}`;
 
-const result = await fetch(crgwx);
+const result = await fetch(wx_url);
 const json = await result.json();
 
+
 json.reports.forEach(report => {
-    //console.log(report);
     console.log(`observation_time: ${report.observation_time}`);
     console.log(`temp: ${report.temp_c} (Celcius)`);
     console.log(`dewpoint: ${report.dewpoint_c} (Celcius)`);
