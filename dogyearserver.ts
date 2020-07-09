@@ -1,6 +1,10 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { parse } from 'https://deno.land/std/flags/mod.ts';
 import dogYears from './dogyears.ts'
-import dogYears2 from './dogyears.js'
+
+const { args } = Deno;
+const DEFAULT_PORT = 8000;
+const argPort = parse(args).port;
 
 const app = new Application();
 
@@ -27,4 +31,4 @@ router.get('/age/:age/weight/:weight', (ctx) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-await app.listen({ port: 8000 });
+await app.listen({ port: argPort ? Number(argPort) : DEFAULT_PORT });
