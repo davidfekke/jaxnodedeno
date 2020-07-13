@@ -20,7 +20,15 @@ export class AssertionError extends Error {
 }
 
 export function _format(v: unknown): string {
-  let string = String(v);
+  let string = globalThis.Deno
+    ? Deno.inspect(v, {
+        depth: Infinity,
+        sorted: true,
+        trailingComma: true,
+        compact: false,
+        iterableLimit: Infinity,
+      } as Deno.InspectOptions)
+    : String(v);
   if (typeof v == "string") {
     string = `"${string.replace(/(?=["\\])/g, "\\")}"`;
   }
