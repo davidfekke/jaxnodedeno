@@ -1,29 +1,19 @@
 // Deno.test
 const { exit } = Deno;
-import { assert } from "https://deno.land/std/testing/asserts.ts";
+import { assert } from "./asserts.ts";
 import dogyears from './dogyears.js';
 import dogyearsTs from './dogyears.ts';
 
 Deno.test("JS Test", () => {
     const expresult = 72.5113613001637;
     const actresult = dogyears(12, 50);
-    if (actresult === expresult) {
-        console.log("Test passed");
-    } else {
-        console.log("Test failed");
-        exit(0);
-    }
+    assert(actresult === expresult, 'Dogyears Passed');
 });
 
 Deno.test("TS Test", () => {
     const expresult = 72.5113613001637;
     const actresult = dogyearsTs(12, 50);
-    if (actresult === expresult) {
-        console.log("Test passed");
-    } else {
-        console.log("Test failed");
-        exit(0);
-    }
+    assert(actresult === expresult, 'Dogyears Passed');
 });
 
 // const result = dogyears(12, 50);
