@@ -1,6 +1,7 @@
 // Deno.test
 const { exit } = Deno;
-import { assert, assertEquals } from "./asserts.ts";
+//import { assert, assertEquals } from "./asserts.ts";
+import { assert, assertEquals } from "https://deno.land/x/std/testing/asserts.ts";
 import dogyears from './dogyears.js';
 import dogyearsTs from './dogyears.ts';
 
