@@ -1,5 +1,11 @@
 
-const calculateDogYears = (originalDogAge: number, weight: number) => {
+/**
+ * Returns the human age of the canine in Dogyears by providing the dog's age and weight.
+ * @param {number} originalDogAge
+ * @param {number} weight
+ * @returns {number} DogAge in human years
+ */
+export function calculateDogYears(originalDogAge: number, weight: number) {
     
     const focalLength: number = 413.1781;
     const startAge: number = 25.48807;
