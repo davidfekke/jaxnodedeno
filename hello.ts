@@ -1,2 +1,2 @@
-const message: String = 'Hello JaxNode!';
+const message: string = 'Hello JaxNode!';
 console.log(message);
